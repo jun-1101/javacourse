@@ -17,4 +17,5 @@ This repository documents my learning progress in Java programming.
 - Projects
 
 ## GitHub Repository URL
-https://github.com/your-username/java-programming-1
+https://github.com/jun-1101/javacourse
+
