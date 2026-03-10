@@ -9,11 +9,14 @@ public class Werewolfgame {
         private boolean alive;
         // private id, role, alive
 
-        public  Player(){
+        public Player() {
+            this.alive = true;
+        }
+
+        public Player(int id, String role) {
             this.id = id;
             this.role = role;
             this.alive = true;
-
         }
 
         public int getId(){
@@ -61,9 +64,9 @@ public class Werewolfgame {
 
                 for (int i = 0; i < n; i++){
                     if (i == wolfIndex) {
-                        players[i] = new Player(i+1, role = "Werewolf");
+                        players[i] = new Player(i+1, "Werewolf");
                     }else{
-                        players[i] = new Player(i+1, role = "Villager");
+                        players[i] = new Player(i+1, "Villager");
                     }
                         
                     }
@@ -73,7 +76,7 @@ public class Werewolfgame {
 
                     for(int i = 0; i < n ; i++){
                         System.out.println();
-                        System.out.println("Player", (i + 1) + "Please Enter");
+                        System.out.println("Player " + (i + 1) + " Please Enter");
                         sc.nextLine();
                         System.out.println("Your Role : " + players[i].getRole());
                         System.out.print("Meorzie your role, then turn");
@@ -87,7 +90,7 @@ public class Werewolfgame {
                     int round = 1;
  
                     while(!gameOver){
-                        System.out.println("Round", + round);
+                        System.out.println("Round " + round);
                         System.out.println();
 
                         System.out.println("Night fails. Werewolf wakes up.");
@@ -135,27 +138,25 @@ public class Werewolfgame {
                         }
 
                         int voteId = -1;
-
-                        public static int findAliveWerewolf(Player[] players){
-                            for(int i = 0; i<players ; i++){
-                                if(players[i].isAlive() && players[i].getRole().equals("Werewolf")){
-                                    return i;
-                                }
-                            }
-                            return -1;
-                        }
-
-                        public static void printAlivePlayers(Player[] players){
-                            for(int i=0; i<players.length; i++){
-                                System.out.print(players[i].getPublicInfo());
-                            }
-                        }
                     }
                 
                 
             }
         }
     
-        
+        public static int findAliveWerewolf(Player[] players){
+            for(int i = 0; i < players.length; i++){
+                if(players[i].isAlive() && players[i].getRole().equals("Werewolf")){
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public static void printAlivePlayers(Player[] players){
+            for(int i=0; i<players.length; i++){
+                System.out.print(players[i].getPublicInfo());
+            }
+        }
     }
 }
